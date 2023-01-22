@@ -1,0 +1,177 @@
+
+.price_section {
+    background: $color-background-additional;
+  }
+  
+  .price_content {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0px 115px 0px;
+    @include media-tablet{
+      padding-bottom: 88.02px;
+    }
+    @include media-mobile{
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  
+  .price-left {
+    display: flex;
+    flex-direction: column;
+    @include media-mobile{
+      align-items: center;
+    }
+  }
+  
+  .price-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    @include media-tablet{
+      width: 296px;
+    }
+    @include media-mobile{
+      align-items: center;
+    }
+
+  }
+  
+  .price-right .price-text {
+    margin-left: 438px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 4rem;
+    /* or 125% */
+    text-align: right;
+    color: $color-heading-additional;
+    @include media-tablet{
+      margin-left: 0px;
+      padding-top: 100px;
+      font-size: 2.5rem;  
+      line-height: 3.5rem;
+    }
+    @include media-mobile{
+      text-align: center;
+      padding-top: 19px;
+      font-size: 2.0rem;
+      line-height: 3.5rem;
+    }
+  }
+  
+  #price_btn {
+    margin: 39px 0px;
+    background-color: $color-background-additional;
+    @include media-tablet{
+      margin: 21.59px 0px;
+      border-radius: 5px;
+
+    }
+    @include media-tablet{
+      margin: 14px 0px;
+      border-radius: 5px;
+
+    }
+
+  }
+  
+  .price-header {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 4.8rem;
+    color: $color-heading-additional;
+    margin-bottom: 60px;
+    @include media-tablet{
+      font-size: 3.5rem;
+      line-height: 4.2rem;
+    }
+    @include media-mobile{
+      font-size: 2.5rem;
+      line-height: 3.0rem;
+      margin-bottom: 40px;
+
+    }
+  }
+  
+  .price-form {
+    box-sizing: border-box;
+    border: 1px solid $color-form-border;
+    border-radius: 20px;
+    padding: 25px 41px;
+    @include media-mobile{
+      width: 224px;
+      padding: 29px 22px;
+    }
+  }
+  
+  .price_btn_acc {
+    margin-bottom: 32px;
+    @include media-mobile{
+      margin-bottom: 13.92px;
+      width: 180px;
+      height: 49.72px;
+    }
+  }
+  
+  .price_btn_acc:last-of-type {
+    margin-bottom: 0px;
+  }
+  
+  .btn_acc {
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 20px;
+    color: $color-heading-additional;
+    background-color: $color-background-primary;
+    width: 250px;
+    border-radius: 20px;
+    padding: 16px 40px 16px 40px;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    @include media-mobile{
+      width: 180px;
+      height: 50px;
+      font-size: 1.5rem;
+      line-height: 2.0rem;
+    }
+  }
+  
+  .arrow {
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-color: #D9D9D9;
+    border-radius: 100%;
+  }
+  
+  .arrow::before,
+  .arrow::after {
+    content: "";
+    position: absolute;
+    top: 8px;
+    width: 4px;
+    height: 1px;
+    background-color: $color-heading-primary;
+    border-radius: 1px;
+  }
+  
+  .arrow::after {
+    transform: rotate(45deg);
+    left: 5px;
+  }
+  
+  .arrow::before {
+    transform: rotate(-45deg);
+    right: 5px;
+  }
+  .price_leafs{
+    display: none;
+  }
