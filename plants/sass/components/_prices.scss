@@ -109,6 +109,16 @@
   
   .price_btn_acc {
     margin-bottom: 32px;
+    &_closed{
+      display: none;
+    }
+    &_opened{
+      //display: none;
+      width: 250px;
+      height: 154px;
+      background: #D6E7D2;
+      border-radius: 20px;
+    }
     @include media-mobile{
       margin-bottom: 13.92px;
       width: 180px;
@@ -124,7 +134,7 @@
     font-family: "Inter", sans-serif;
     font-weight: 700;
     font-size: 2rem;
-    line-height: 20px;
+    line-height: 2rem;
     color: $color-heading-additional;
     background-color: $color-background-primary;
     width: 250px;
@@ -135,6 +145,10 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    &_opened{
+      background-color:#D6E7D2;
+      padding: 16px 40px 12px 40px;
+    }
     @include media-mobile{
       width: 180px;
       height: 50px;
@@ -150,6 +164,9 @@
     height: 16px;
     background-color: #D9D9D9;
     border-radius: 100%;
+    &_opened{
+      transform: rotate(180deg);
+    }
   }
   
   .arrow::before,
@@ -165,12 +182,32 @@
   
   .arrow::after {
     transform: rotate(45deg);
+
     left: 5px;
   }
   
   .arrow::before {
     transform: rotate(-45deg);
+
     right: 5px;
+  }
+  .btn_acc_line {
+    //display: none;
+    width: 164px;
+    height: 0px;
+    margin-left: 40px;
+    border: 0.5px solid #AEA1A1;
+  }
+  .btn_acc_text{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1rem;
+    margin: 6px 46px 0px 40px;
+    /* or 100% */
+
+
+    color: $color-heading-primary;
   }
   .price_leafs{
     display: none;

@@ -685,6 +685,15 @@ body {
 .price_btn_acc {
   margin-bottom: 32px;
 }
+.price_btn_acc_closed {
+  display: none;
+}
+.price_btn_acc_opened {
+  width: 250px;
+  height: 154px;
+  background: #D6E7D2;
+  border-radius: 20px;
+}
 @media (max-width: 380px) {
   .price_btn_acc {
     margin-bottom: 13.92px;
@@ -701,7 +710,7 @@ body {
   font-family: "Inter", sans-serif;
   font-weight: 700;
   font-size: 2rem;
-  line-height: 20px;
+  line-height: 2rem;
   color: #000000;
   background-color: #EDF2EC;
   width: 250px;
@@ -712,6 +721,10 @@ body {
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
+}
+.btn_acc_opened {
+  background-color: #D6E7D2;
+  padding: 16px 40px 12px 40px;
 }
 @media (max-width: 380px) {
   .btn_acc {
@@ -729,6 +742,9 @@ body {
   height: 16px;
   background-color: #D9D9D9;
   border-radius: 100%;
+}
+.arrow_opened {
+  transform: rotate(180deg);
 }
 
 .arrow::before,
@@ -750,6 +766,23 @@ body {
 .arrow::before {
   transform: rotate(-45deg);
   right: 5px;
+}
+
+.btn_acc_line {
+  width: 164px;
+  height: 0px;
+  margin-left: 40px;
+  border: 0.5px solid #AEA1A1;
+}
+
+.btn_acc_text {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1rem;
+  margin: 6px 46px 0px 40px;
+  /* or 100% */
+  color: #717171;
 }
 
 .price_leafs {
