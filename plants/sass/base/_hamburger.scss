@@ -8,7 +8,9 @@
     }
 }
 .hamburger-nav{
+    display: none;
     @include media-mobile{
+        display: block;
         position: fixed;
         top: 0;
         left: 0;

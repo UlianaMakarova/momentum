@@ -22,9 +22,13 @@
 
     }
   }
-  
+  /*
   .btn:hover {
     background-color: $color-additional;
     color: $color-background-additional;
   }
-  
+*/
+.btn_selected {
+    background-color: $color-additional;
+    color: $color-background-additional;
+  }
