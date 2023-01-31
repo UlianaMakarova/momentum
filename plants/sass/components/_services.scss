@@ -82,6 +82,9 @@
   
   .service_item {
     flex-basis: 330px;
+    &_blur{
+      filter: blur(2.5px);
+    }
     @include media-tablet{
       flex-basis: 280px;
     }

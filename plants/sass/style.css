@@ -474,6 +474,9 @@ body {
 .service_item {
   flex-basis: 330px;
 }
+.service_item_blur {
+  filter: blur(2.5px);
+}
 @media (max-width: 768px) {
   .service_item {
     flex-basis: 280px;

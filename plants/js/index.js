@@ -6,32 +6,73 @@ window.onload = function(){
 }
 
 const addTagsClickHandler=()=>{
-    let clickedButton = [];
+    let clickedButtons = [];
     document.querySelector('.service_btns').addEventListener('click',(e)=>{
+
         if(e.target.classList.contains('btn')){
-            clickedButton.push(e.target);
-            if(clickedButton.length === 3){removeSelectedButtons()};
-            selectClickedButtons(clickedButton);
+            if (clickedButtons.includes(e.target)){
+                clickedButtons.splice(clickedButtons.indexOf(e.target));
+                removeSelectedButtons();
+                showAllServices();
+            }
+            else {
+
+                clickedButtons.push(e.target);
+            }
+            if (clickedButtons.length === 3 || clickedButtons.length === 0)
+            {
+                removeSelectedButtons();
+                showAllServices();
+                clickedButtons = [];
+            }
+            else{
+            selectClickedButtons(clickedButtons);
+            filterServiceBySelectedButtons(clickedButtons);
+            }
+
+           
         }
+    
     }) 
 }
 
 const removeSelectedButtons=() => {
     let buttons = document.querySelectorAll('.btn_selected');
-    console.log(buttons)
     buttons.forEach(btn=>{
-        console.log();
         btn.classList.remove('btn_selected');
         btn.classList.add('btn_unselected');
     })
 }
-const selectClickedButtons=(clickedButton) => {
-    clickedButton.classList.remove('btn_unselected');
-    clickedButton.classList.add('btn_selected');
+const selectClickedButtons=(clickedButtons) => {
+    clickedButtons.forEach(button =>{
+        button.classList.remove('btn_unselected');
+        button.classList.add('btn_selected');
+    })
+}
+const filterServiceBySelectedButtons=(clickedButtons) =>{
+    let services_items = document.querySelectorAll('.service_item');
+    services_items.forEach(item =>{
+        let header = item.querySelector('.header');
+        item.classList.add('service_item_blur'); 
+        clickedButtons.forEach(clickedButton=>{
+            if (header.textContent.includes(clickedButton.innerText.slice(0,-1))){
+                item.classList.remove('service_item_blur');        
+            }
+            })
+        
+    });
+}
+const showAllServices=() => {
+    let services_items = document.querySelectorAll('.service_item_blur');
+    console.log(services_items)
+    services_items.forEach(item =>{
+        item.classList.remove('service_item_blur'); 
+        console.log(item.classList)
+
+ 
+    })
 
 }
-
-
 //Меню бургер открыть
 const iconMenu = document.querySelector('.hamburger');
 const menuBody = document.querySelector('.hamburger-nav');
