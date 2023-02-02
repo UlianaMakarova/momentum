@@ -2,13 +2,52 @@ window.onload = function(){
     console.log('Максимальное количество баллов: 100\n');
     console.log('Невыполненные пункты:');
     console.log('');
+    addPriceButtonHandler();
     addTagsClickHandler();
+
+}
+const addPriceButtonHandler=()=>{
+    let clickedAccButton = '';
+    document.querySelectorAll('.btn_acc').forEach(accButton =>accButton.addEventListener('click',(e)=>{
+        e = e || window.event;
+        var target = e.target || e.srcElement;
+        if ( target.classList.contains('arrow')){
+            allClosedAccButtons =  document.querySelectorAll('.price_btn_acc_closed');
+            allOpenedAccButtons = document.querySelectorAll('.price_btn_acc_opened');
+            closeAllOpenedAndOpenAllClosed(allClosedAccButtons,allOpenedAccButtons);
+            if ( clickedAccButton.trim() !== target.closest('.btn_acc').innerText.trim()){
+                clickedAccButton = target.closest('.btn_acc').innerText;
+                openOneAccPrice(target.closest('.btn_acc').innerText);
+            }
+            else{
+                clickedAccButton = '';
+            }
+           
+        }
+    })
+)}
+const closeAllOpenedAndOpenAllClosed=(closed,opened)=>{
+    closed.forEach(acc=> acc.style.display='block')
+    opened.forEach(acc=> acc.style.display='none')
 }
 
+const openOneAccPrice=(clickedAccButton)=>{
+    openedAccButtons =  document.querySelectorAll('.price_btn_acc_opened');
+    openedAccButtons.forEach(acc =>{
+        if (acc.innerText.includes(clickedAccButton)){
+            acc.style.display = 'block';            
+        }
+    });
+    allClosedAccButtons = document.querySelectorAll('.price_btn_acc_closed');
+    allClosedAccButtons.forEach(acc =>{
+        if (acc.innerText.includes(clickedAccButton)){
+            acc.style.display = 'none';            
+        }
+    })
+}
 const addTagsClickHandler=()=>{
     let clickedButtons = [];
     document.querySelector('.service_btns').addEventListener('click',(e)=>{
-
         if(e.target.classList.contains('btn')){
             if (clickedButtons.includes(e.target)){
                 clickedButtons.splice(clickedButtons.indexOf(e.target));
@@ -35,7 +74,6 @@ const addTagsClickHandler=()=>{
     
     }) 
 }
-
 const removeSelectedButtons=() => {
     let buttons = document.querySelectorAll('.btn_selected');
     buttons.forEach(btn=>{

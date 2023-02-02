@@ -13,7 +13,7 @@
 
     color: $color-additional;
     cursor: pointer;
-    @extend %transition;
+    transition: all 14s ease-out;
     @include media-mobile{
       min-width: 121px;
       font-size: 1.5rem;
@@ -29,6 +29,8 @@
   }
 */
 .btn_selected {
+
+
     background-color: $color-additional;
     color: $color-background-additional;
   }

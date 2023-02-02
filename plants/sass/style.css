@@ -16,7 +16,7 @@ body {
   padding: 0;
 }
 
-.btn, .nav-link {
+.nav-link {
   transition: all 0.4s ease-out;
 }
 
@@ -686,9 +686,10 @@ body {
   margin-bottom: 32px;
 }
 .price_btn_acc_closed {
-  display: none;
+  display: block;
 }
 .price_btn_acc_opened {
+  display: none;
   width: 250px;
   height: 154px;
   background: #D6E7D2;
@@ -783,6 +784,29 @@ body {
   margin: 6px 46px 0px 40px;
   /* or 100% */
   color: #717171;
+}
+
+.btn_acc_price {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 2rem;
+  margin: 6px 87px 0px 40px;
+}
+
+.btn_price_order {
+  width: 86px;
+  height: 25px;
+  background: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  color: #717171;
+  margin: 12px 87px 12px 39px;
 }
 
 .price_leafs {
@@ -899,6 +923,7 @@ body {
   background-color: #EDF2EC;
   color: #E06733;
   cursor: pointer;
+  transition: all 14s ease-out;
 }
 @media (max-width: 380px) {
   .btn {

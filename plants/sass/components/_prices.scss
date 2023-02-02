@@ -110,10 +110,10 @@
   .price_btn_acc {
     margin-bottom: 32px;
     &_closed{
-      display: none;
+      display: block;
     }
     &_opened{
-      //display: none;
+      display: none;
       width: 250px;
       height: 154px;
       background: #D6E7D2;
@@ -196,7 +196,7 @@
     width: 164px;
     height: 0px;
     margin-left: 40px;
-    border: 0.5px solid #AEA1A1;
+    border: 0.5px solid $color-line;
   }
   .btn_acc_text{
     font-style: normal;
@@ -205,9 +205,29 @@
     line-height: 1rem;
     margin: 6px 46px 0px 40px;
     /* or 100% */
-
-
     color: $color-heading-primary;
+  }
+  .btn_acc_price{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 2.0rem;
+    margin: 6px 87px 0px 40px;
+  }
+  .btn_price_order{
+    width: 86px;
+    height: 25px;
+    background: $color-background-additional;
+    border: none;
+    border-radius: 10px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 2.0rem;
+    color: $color-heading-primary;
+
+    margin: 12px 87px 12px 39px;
   }
   .price_leafs{
     display: none;
