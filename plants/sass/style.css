@@ -16,7 +16,7 @@ body {
   padding: 0;
 }
 
-.nav-link {
+.btn, .nav-link {
   transition: all 0.4s ease-out;
 }
 
@@ -923,7 +923,6 @@ body {
   background-color: #EDF2EC;
   color: #E06733;
   cursor: pointer;
-  transition: all 14s ease-out;
 }
 @media (max-width: 380px) {
   .btn {

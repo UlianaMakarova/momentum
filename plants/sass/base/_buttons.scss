@@ -13,7 +13,7 @@
 
     color: $color-additional;
     cursor: pointer;
-    transition: all 14s ease-out;
+    @extend %transition;
     @include media-mobile{
       min-width: 121px;
       font-size: 1.5rem;
