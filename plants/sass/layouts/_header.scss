@@ -1,0 +1,50 @@
+.header {
+    background: $color-background-primary;
+
+  }
+.nav{
+  
+  @include media-mobile{
+    display: none;
+  }
+}  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 46px 0;
+    @include media-tablet {
+      padding: 35px 0;
+    }
+    @include media-mobile {
+      padding: 36px 0;
+    }
+  }
+  
+  .nav-list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    column-gap: 46px;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: $color-link;
+    font-family: "Inika", serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 5.0rem;
+    @extend %transition;
+  }
+  
+  .nav-link:hover, .nav-link:focus, .logo:hover {
+    color: $color-additional;
+  }
+  
+  .nav-link:active, .logo:active {
+    color: $color-additional;
+  }
+  
+  
