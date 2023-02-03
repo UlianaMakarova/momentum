@@ -65,7 +65,7 @@
     font-family: "Inter", sans-serif;
     font-weight: 400;
     font-size: 2rem;
-    line-height: 40px;
+    line-height: 4.0rem;
     letter-spacing: 0.05em;
     color: $color-heading-primary;
     border: none;
@@ -82,4 +82,121 @@
       width: 300px;
     }
   }
-  
+  .contact_btn_acc._active{
+    background: #C1E698;
+    border: 1px solid #D6E7D2;
+    border-radius: 0px;
+  }
+  .arrow_contact._active{
+    background: #8BA07E;
+    transform: rotate(180deg);
+  }
+  .arrow_contact._active::before{
+    border: 0.5px;
+    background-color: #FFFFFF;
+  }
+  .arrow_contact._active::after{
+    border: 0.5px;
+    background-color: #FFFFFF;
+  }
+.city_list_container{
+    display: none;
+    width: 450px;
+    height: 234px;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+    padding: 27px 24px 31px 20px;
+    background: #D6E7D2;
+    box-sizing: border-box;
+
+    border-radius: 0px;
+    list-style-type: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    @include media-mobile{
+      width: 300px;
+    }
+
+}
+.city_list_item{
+  border-bottom: 1px solid #D9D9D9;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 4.0rem;
+  letter-spacing: 0.05em;
+  color: #499A18;
+
+
+}
+.city_list_item:hover{
+  color: $color-heading-primary;
+  border-bottom: 1px solid #717171;;
+}
+.city_card{
+  display: none;
+  box-sizing: border-box;
+  width: 448px;
+  height: 214px;
+  margin-top: 47px;
+
+  background: #EDF2EC;
+  border: 1px solid #000000;
+  border-radius: 20px;
+}
+.city_card_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 17px 76px 24px 33px;
+}
+.city_row{
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+}
+.city_card_key{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 4.0rem;
+  /* or 250% */
+
+  letter-spacing: 0.05em;
+
+  color: $color-heading-additional;
+}
+.city_card_value{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 4.0rem;
+  /* identical to box height, or 250% */
+
+  letter-spacing: 0.05em;
+
+  color: $color-heading-primary;
+
+}
+.btn_card_call_us{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 122px;
+  height: 26px;
+  margin: 0px 0px 32px 162px;
+  font-family: 'Inika';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.0rem;
+  line-height: 1.3rem;
+  text-align: center;
+
+  color: $color-heading-primary;
+  border: 1px solid #E06733;
+  border-radius: 5px;
+}

@@ -1,11 +1,77 @@
+const contact=[
+{'City:':'Canandaigua, NY','Phone:':'+1	585	393 0001','Office address:':'151 Charlotte Street'},
+{'City:':'New York City','Phone:':'+1	212	456 0002','Office address:':'9 East 91st Street'},
+{'City:':'Yonkers, NY','Phone:':'+1	914	678 0003','Office address:':'511 Warburton Ave'},
+{'City:':'Sherrill, NY','Phone:':'+1	315	908 0004','Office address:':'14 WEST Noyes BLVD'}
+];
+
 window.onload = function(){
     console.log('Максимальное количество баллов: 100\n');
     console.log('Невыполненные пункты:');
     console.log('');
     addPriceButtonHandler();
     addTagsClickHandler();
+    addContactSelectHandler();
+    addContactCityHandler();
+    
 
 }
+const addContactSelectHandler=()=>{
+    document.querySelector('.arrow_contact').addEventListener('click',(e)=>{
+        e = e || window.event;
+        var target = e.target ;
+        if ( target.classList.contains('arrow_contact')){
+            //target.closest('.contact_btn_acc').classList.toggle('_active');
+            target.classList.toggle('_active');  
+            let list = document.querySelector('.city_list_container');
+            target.classList.contains('_active') ? list.style.display = 'flex' : list.style.display = 'none';
+            target.classList.contains('_active') ? target.closest('.contact_btn_acc').classList.add('_active') :target.closest('.contact_btn_acc').classList.add('_active'); 
+        }
+
+    })
+}
+const addContactCityHandler=()=>{
+    let clicked_city = 'City';
+    document.querySelectorAll('.city_list_item').forEach(item =>addEventListener('click',(e)=>{
+        e = e || window.event;
+        var target = e.target ;
+        let arrow =document.querySelector('.arrow_contact');
+        if ( target.classList.contains('city_list_item') && target.innerText === item.innerText){
+            
+            clicked_city = target.innerText;
+            let list = document.querySelector('.city_list_container');
+            list.style.display = 'none';
+            arrow.classList.toggle('_active');
+        }
+        let text = document.querySelector('.contact_text');
+        text.innerHTML = clicked_city;
+        if (clicked_city !== 'City'){
+            getCityCardInfo(clicked_city);
+            let card = document.querySelector('.city_card');
+            arrow.classList.contains('_active') ? card.style.display = 'none' : card.style.display = 'block';
+        }
+
+    }
+    ))
+}
+
+const getCityCardInfo=(city='New York City')=>{
+    if (city === 'City')
+        return;
+    let info = contact.filter(card => card['City:']===city)[0]
+    let keys = document.querySelectorAll('.city_card_key');
+    let values = document.querySelectorAll('.city_card_value')
+    keys.forEach((key,index)=> {
+        key.innerHTML = Object.keys(info)[index]}
+        )
+    values.forEach((value,index)=> {
+        value.innerHTML = Object.values(info)[index]}
+        )
+    let phone = 'tel: '+info['Phone:'];
+    let button = document.querySelector('.btn_card_call_us');
+    button.setAttribute('formaction',phone)
+}
+
 const addPriceButtonHandler=()=>{
     let clickedAccButton = '';
     document.querySelectorAll('.btn_acc').forEach(accButton =>accButton.addEventListener('click',(e)=>{
