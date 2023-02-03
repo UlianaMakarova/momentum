@@ -7,7 +7,8 @@ const contact=[
 
 window.onload = function(){
     console.log('Максимальное количество баллов: 100\n');
-    console.log('Невыполненные пункты:');
+    console.log('По функционалу старалась все выполнить.');
+    console.log('Самооценка: 100')
     console.log('');
     addPriceButtonHandler();
     addTagsClickHandler();

@@ -87,15 +87,15 @@
     border: 1px solid #D6E7D2;
     border-radius: 0px;
   }
-  .arrow_contact._active{
+  .arrow._active{
     background: #8BA07E;
     transform: rotate(180deg);
   }
-  .arrow_contact._active::before{
+  .arrow._active::before{
     border: 0.5px;
     background-color: #FFFFFF;
   }
-  .arrow_contact._active::after{
+  .arrow._active::after{
     border: 0.5px;
     background-color: #FFFFFF;
   }
@@ -127,6 +127,7 @@
   line-height: 4.0rem;
   letter-spacing: 0.05em;
   color: #499A18;
+  @extend %transition;
 
 
 }
