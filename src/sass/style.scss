@@ -20,17 +20,11 @@ body {
   background-blend-mode: multiply;
   transition: background-image 1s ease-in-out;
 }
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-  height: 30vh;
-  min-height: 220px;  
-  padding: 20px;
-}
-
+/*Layouts*/
+@import "layouts/header";
+@import "layouts/footer";
+/*Components*/
+@import "components/clock";
 .player-controls {
   display: flex;
   align-items: center;
@@ -193,19 +187,6 @@ body {
   background-image: url("../assets/svg/slider-next.svg");
 }
 
-.time {
-  min-height: 124px;
-  margin-bottom: 10px;
-  font-family: 'Arial-MT';
-  font-size: 100px;
-  letter-spacing: -4px;  
-}
-
-.date {
-  min-height: 28px;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
 
 .greeting-container {
   display: flex;
@@ -240,29 +221,6 @@ body {
   opacity: .6;
 }
 
-.footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  height: 30vh;
-  min-height: 160px;  
-  padding: 20px;
-}
-
-.change-quote {
-  margin-bottom: 30px;
-  background-image: url("../assets/svg/reload.svg");  
-}
-
-.quote {
-  min-height: 32px;
-}
-
-.author {
-  min-height: 20px;
-}
 
 @media (max-width: 768px) {
   .time {
