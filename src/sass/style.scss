@@ -20,11 +20,15 @@ body {
   background-blend-mode: multiply;
   transition: background-image 1s ease-in-out;
 }
+@import "abstract/constants";
+@import "abstract/mixins";
 /*Layouts*/
 @import "layouts/header";
 @import "layouts/footer";
 /*Components*/
 @import "components/clock";
+@import "components/greeting";
+
 .player-controls {
   display: flex;
   align-items: center;
@@ -185,60 +189,4 @@ body {
 .slide-next {
   right: 20px;
   background-image: url("../assets/svg/slider-next.svg");
-}
-
-
-.greeting-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: stretch;
-  align-items: center;
-  min-height: 48px;
-  width: 100vw;
-  font-size: 40px;
-}
-
-.greeting {
-  flex: 1;  
-  padding: 10px;
-  text-align: right;
-}
-
-.name {
-  flex: 1;
-  max-width: 50%;
-  padding: 10px;
-  font-size: 40px;
-  text-align: left;
-  color: #fff;
-  background-color: transparent;
-  border: 0;
-  outline: 0;
-}
-
-.name::placeholder {
-  color: #fff;
-  opacity: .6;
-}
-
-
-@media (max-width: 768px) {
-  .time {
-    min-height: 80px;
-    font-size: 72px;    
-  }
-
-  .greeting-container {
-    min-height: 40px;
-    font-size: 32px;
-  }
-
-  .greeting {
-    padding: 5px;
-  }
-
-  .name {
-    font-size: 32px;
-    padding: 5px;
-  }
 }
