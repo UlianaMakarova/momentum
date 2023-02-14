@@ -1,10 +1,14 @@
+//import playList from 'playList';
+//console.log(playList);
 let randomNum = 0;
+let isPlay = false;
 const weatherIcon = document.querySelector('.weather-icon');
 const temperature = document.querySelector('.temperature');
 const weatherDescription = document.querySelector('.weather-description');
 const city = document.querySelector('.city');
 
 window.onload = function(){
+
     showTime();
     getLocalStorage();
     setBackgroundImage();
@@ -23,6 +27,15 @@ async function getWeather() {
   temperature.textContent = `${data.main.temp}°C`;
   weatherDescription.textContent = data.weather[0].description;
 }
+
+async function getQuotes() {  
+  const quotes = 'src/assets/data.json';
+  const res = await fetch(quotes);
+  const data = await res.json(); 
+  console.log(data);
+}
+
+getQuotes();
 function setCity(event) {
   if (event.code === 'Enter') {
     getWeather();
