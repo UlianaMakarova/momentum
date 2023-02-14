@@ -1,4 +1,9 @@
 let randomNum = 0;
+const weatherIcon = document.querySelector('.weather-icon');
+const temperature = document.querySelector('.temperature');
+const weatherDescription = document.querySelector('.weather-description');
+const city = document.querySelector('.city');
+
 window.onload = function(){
     showTime();
     getLocalStorage();
@@ -6,6 +11,27 @@ window.onload = function(){
     document.querySelector('.slide-next').addEventListener('click', getSlideNext);
     document.querySelector('.slide-prev').addEventListener('click', getSlidePrev);
 }
+
+async function getWeather() {  
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=ru&appid=08f2a575dda978b9c539199e54df03b0&units=metric`;
+  const res = await fetch(url);
+  const data = await res.json(); 
+
+  console.log(data.weather[0].id, data.weather[0].description, data.main.temp);
+  weatherIcon.className = 'weather-icon owf';
+  weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+  temperature.textContent = `${data.main.temp}°C`;
+  weatherDescription.textContent = data.weather[0].description;
+}
+function setCity(event) {
+  if (event.code === 'Enter') {
+    getWeather();
+    city.blur();
+  }
+}
+
+document.addEventListener('DOMContentLoaded', getWeather);
+city.addEventListener('keypress', setCity);
 
 const getRandomNum=(min, max)=>{
   min = Math.ceil(min);
