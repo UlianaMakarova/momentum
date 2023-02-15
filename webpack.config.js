@@ -1,5 +1,6 @@
-const webpack=require('webpack');
+const webpack = require('webpack');
 const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports=(env,options)=>{
     const isProduction = options.mode === 'production';
@@ -8,7 +9,8 @@ module.exports=(env,options)=>{
         output: {
             path: path.join(__dirname,'/dist'),
             filename: 'script.js' 
-        }
+        },
+        plugins: [new CleanWebpackPlugin],
 
     }
     return config;
