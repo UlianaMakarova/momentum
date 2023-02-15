@@ -2,10 +2,11 @@
   "name": "momentum",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "/src/js/index",
   "scripts": {
-    "style":  "sass --watch src/sass/style.scss:src/sass/style.css src/sass/owfont-regular.scss:src/sass/owfont-regular.css",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "style": "sass --watch src/sass/style.scss:src/sass/style.css src/sass/owfont-regular.scss:src/sass/owfont-regular.css",
+    "dev": "webpack --mode development",
+    "prod": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/rolling-scopes-school/ulianamakarova-JSFEPRESCHOOL2022Q4/issues"
   },
-  "homepage": "https://github.com/rolling-scopes-school/ulianamakarova-JSFEPRESCHOOL2022Q4#readme"
+  "homepage": "https://github.com/rolling-scopes-school/ulianamakarova-JSFEPRESCHOOL2022Q4#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
 }

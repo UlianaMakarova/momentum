@@ -29,8 +29,8 @@ async function getWeather() {
 }
 
 async function getQuotes() {  
-  const quotes = 'src/assets/data.json';
-  const res = await fetch(quotes);
+  //const quotes = '../';
+  const res = await fetch('../momentum/src/assets/data.json');
   const data = await res.json(); 
   console.log(data);
 }
