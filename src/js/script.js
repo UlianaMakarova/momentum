@@ -1,14 +1,18 @@
 //import playList from 'playList';
 //console.log(playList);
+//import data from '../assets/data.json' assert { type: 'JSON' };
+//console.log(data);
 let randomNum = 0;
 let isPlay = false;
 const weatherIcon = document.querySelector('.weather-icon');
 const temperature = document.querySelector('.temperature');
 const weatherDescription = document.querySelector('.weather-description');
 const city = document.querySelector('.city');
+const quote = document.querySelector('.quote');
+const author = document.querySelector('.author');
+const reload = document.querySelector('.change-quote');
 
 window.onload = function(){
-
     showTime();
     getLocalStorage();
     setBackgroundImage();
@@ -27,13 +31,27 @@ async function getWeather() {
   temperature.textContent = `${data.main.temp}°C`;
   weatherDescription.textContent = data.weather[0].description;
 }
+const getRandomNum=(min, max, mode)=>{
+
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  if (mode === 'slider')
+    randomNum = (Math.floor(Math.random() * (max - min + 1)) + min);
+  else
+    return (Math.floor(Math.random() * (max - min + 1)) + min);
+  
+}
 
 async function getQuotes() {  
-  //const quotes = '../';
-  const res = await fetch('../momentum/src/assets/data.json');
+  const quotes = 'http://localhost:5500/src/assets/data.json';//'https://github.com/UlianaMakarova/momentum/blob/main/data.json';
+  const res = await fetch(quotes);
   const data = await res.json(); 
-  console.log(data);
+  const numRandom = getRandomNum(0, 2,'quote');
+  quote.textContent = data[numRandom].text;
+  author.textContent = data[numRandom].author;
+  
 }
+reload.addEventListener('click', getQuotes);
 
 getQuotes();
 function setCity(event) {
@@ -46,12 +64,7 @@ function setCity(event) {
 document.addEventListener('DOMContentLoaded', getWeather);
 city.addEventListener('keypress', setCity);
 
-const getRandomNum=(min, max)=>{
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  randomNum = (Math.floor(Math.random() * (max - min + 1)) + min);
-  return
-}
+
 const getTimeOfDay=()=>{
   const dayParts = ['morning', 'afternoon', 'evening','night'];
   const date = new Date();
@@ -63,7 +76,7 @@ const setBackgroundImage=()=>{
   const timeOfDay = getTimeOfDay();
   console.log(randomNum)
   if (randomNum === 0)
-    getRandomNum(1,20);
+    getRandomNum(1,20,'slider');
   const img = new Image();
   img.src = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${timeOfDay}/${randomNum.toString().padStart(2,'0')}.jpg`
   console.log(img.src);
