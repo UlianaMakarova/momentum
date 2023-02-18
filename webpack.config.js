@@ -10,7 +10,7 @@ module.exports=(env,options)=>{
             path: path.join(__dirname,'/dist'),
             filename: 'script.js' 
         },
-        plugins: [new CleanWebpackPlugin],
+        plugins: [new CleanWebpackPlugin(),],
 
     }
     return config;

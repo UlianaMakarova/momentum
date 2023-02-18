@@ -1,9 +1,9 @@
-//import playList from 'playList';
-//console.log(playList);
-//import data from '../assets/data.json' assert { type: 'JSON' };
-//console.log(data);
+import playList from './PlayList';
+console.log(playList);
+
 let randomNum = 0;
 let isPlay = false;
+let playNum = 0;
 const weatherIcon = document.querySelector('.weather-icon');
 const temperature = document.querySelector('.temperature');
 const weatherDescription = document.querySelector('.weather-description');
@@ -12,13 +12,48 @@ const quote = document.querySelector('.quote');
 const author = document.querySelector('.author');
 const reload = document.querySelector('.change-quote');
 
+const playerBtn = document.querySelector('.play');
+const playNextBtn = document.querySelector('.play-next');
+const playPrevBtn = document.querySelector('.play-prev');
+const audio = new Audio();
+
 window.onload = function(){
     showTime();
     getLocalStorage();
     setBackgroundImage();
     document.querySelector('.slide-next').addEventListener('click', getSlideNext);
-    document.querySelector('.slide-prev').addEventListener('click', getSlidePrev);
+    document.querySelector('.slide-prev').addEventListener('click', getSlidePrev);    
+    playerBtn.addEventListener('click', toggleBtn);
 }
+
+function toggleBtn() {
+  console.log('press');
+  (isPlay)? pauseAudio(): playAudio();
+  playerBtn.classList.toggle('pause');
+}
+
+function playAudio() {
+  isPlay = true;
+  audio.src = playList[playNum].src;
+  console.log(audio.src);
+  audio.currentTime = 0;
+  audio.play();
+  
+}
+function pauseAudio() {
+  audio.pause();
+  isPlay = false;
+}
+function playNext(){
+  playNum = playNum === playList.length -1 ? 0: playNum + 1;
+  playAudio();
+}
+playNextBtn.addEventListener('click',playNext);
+function playPrev(){
+  playNum = playNum === 0 ? playList.length-1: playNum -1;
+  playAudio();
+}
+playPrevBtn.addEventListener('click',playPrev);
 
 async function getWeather() {  
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=ru&appid=08f2a575dda978b9c539199e54df03b0&units=metric`;
