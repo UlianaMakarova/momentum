@@ -2,8 +2,9 @@ import playList from './PlayList';
 console.log(playList);
 
 const langList = ['en-US','ru-RU'];
-let defaultLang = langList[0];
-
+let langSetting = langList[0];
+let cityDefaultList = ['Minsk','Минск'];
+let citySetting = cityDefaultList[0];
 const greetingContainer={
   'en-US': 'Good',
   'ru-RU': 'Добрый'
@@ -36,14 +37,14 @@ window.onload = function(){
     document.querySelector('.slide-prev').addEventListener('click', getSlidePrev);    
     playerBtn.addEventListener('click', toggleBtn);
 
-    langContainer.textContent = defaultLang;
+    langContainer.textContent = langSetting;
     langContainer.addEventListener('click',changeLang);
 }
 const changeLang=()=>{
-
-  let position = langList.indexOf(langContainer.textContent);
-  langContainer.textContent = position === langList.length-1? langList[0]: langList[position +1];
-  defaultLang = langContainer.textContent;
+  langContainer.textContent = langList.indexOf(langContainer.textContent) === langList.length-1? langList[0]: langList[langList.indexOf(langContainer.textContent) +1];
+  langSetting = langContainer.textContent;
+  console.log(langSetting);
+  city.value = cityDefaultList[langList.indexOf(langSetting)];
   getWeather();
   showTime();
   getQuotes();
@@ -91,7 +92,8 @@ function playPrev(){
 playPrevBtn.addEventListener('click',playPrev);
 
 async function getWeather() {  
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${defaultLang.split('-')[0]}&appid=08f2a575dda978b9c539199e54df03b0&units=metric`;
+
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${langSetting.split('-')[0]}&appid=08f2a575dda978b9c539199e54df03b0&units=metric`;
   const res = await fetch(url);
   const data = await res.json(); 
 
@@ -116,8 +118,8 @@ async function getQuotes() {
   const res = await fetch(quotes);
   const data = await res.json(); 
   const numRandom = getRandomNum(0, 2,'quote');
-  quote.textContent = data[numRandom][defaultLang].text;
-  author.textContent = data[numRandom][defaultLang].author;
+  quote.textContent = data[numRandom][langSetting].text;
+  author.textContent = data[numRandom][langSetting].author;
   
 }
 reload.addEventListener('click', getQuotes);
@@ -140,7 +142,7 @@ const getTimeOfDay=()=>{
   };
   const date = new Date();
   const hours = date.getHours();
-  return dayParts[defaultLang][Math.floor(hours/6)-1];
+  return dayParts[langSetting][Math.floor(hours/6)-1];
 };
 
 const setBackgroundImage=()=>{
@@ -187,7 +189,7 @@ const showTime=()=>{
     const date_block = document.querySelector('.date');
     const date = new Date();
     const currentTime = date.toLocaleTimeString();
-    const currentDate= date.toLocaleDateString(defaultLang, options);
+    const currentDate= date.toLocaleDateString(langSetting, options);
     time_block.innerHTML = currentTime;
     date_block.innerHTML = currentDate;
 
@@ -198,6 +200,6 @@ const showTime=()=>{
 
 
 const showGreeting=()=>{
-  return getTimeOfDay()==='утро'? 'Доброе утро': `${greetingContainer[defaultLang]} ${getTimeOfDay()}`;
+  return getTimeOfDay()==='утро'? 'Доброе утро': `${greetingContainer[langSetting]} ${getTimeOfDay()}`;
     
 };
