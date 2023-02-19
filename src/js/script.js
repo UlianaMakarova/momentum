@@ -43,7 +43,6 @@ window.onload = function(){
 const changeLang=()=>{
   langContainer.textContent = langList.indexOf(langContainer.textContent) === langList.length-1? langList[0]: langList[langList.indexOf(langContainer.textContent) +1];
   langSetting = langContainer.textContent;
-  console.log(langSetting);
   city.value = cityDefaultList[langList.indexOf(langSetting)];
   getWeather();
   showTime();
