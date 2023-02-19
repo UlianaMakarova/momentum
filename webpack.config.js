@@ -1,11 +1,14 @@
 const webpack = require('webpack');
 const path = require('path');
+
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports=(env,options)=>{
     const isProduction = options.mode === 'production';
     const config ={
-        entry: './src/js/script.js',
+        entry: ['./src/js/script.js','./src/sass/style.scss'],
         output: {
             path: path.join(__dirname,'/dist'),
             filename: 'script.js' 
@@ -23,10 +26,33 @@ module.exports=(env,options)=>{
                       ]
                     }
                   }
+                },{
+                    test: /\.scss$/,
+                    use: [
+                        MiniCssExtractPlugin.loader,'css-loader', 'sass-loader'
+                    ]            
+
+                },{
+                    test: /\.mp3$/i,
+                    use: [
+                      {
+                        loader: 'file-loader',
+                      },]
                 }
+                
               ],
         },
-        plugins: [new CleanWebpackPlugin(),],
+        plugins: [
+            new CleanWebpackPlugin(),
+            // new HtmlWebpackPlugin({
+            //     path: path,
+            //     template: 'index.html'
+            // }),
+            new MiniCssExtractPlugin({
+                filename: 'style.css'
+            }),
+            
+        ],
 
     }
     return config;

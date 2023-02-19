@@ -8,6 +8,11 @@ const playList = [
       title: 'River Flows In You',
       src: 'src/assets/sounds/River Flows In You.mp3',
       duration: '03:50'
+    },
+    {      
+      title: 'Ennio Morricone',
+      src: 'src/assets/sounds/Ennio Morricone.mp3',
+      duration: '01:37'
     }
   ]
   export default playList;
