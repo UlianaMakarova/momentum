@@ -113,7 +113,7 @@ const getRandomNum=(min, max, mode)=>{
 }
 
 async function getQuotes() {  
-  const quotes = 'http://localhost:5500/src/assets/data.json';//'https://github.com/UlianaMakarova/momentum/blob/main/data.json';
+  const quotes = 'http://localhost:5500/src/assets/data.json';
   const res = await fetch(quotes);
   const data = await res.json(); 
   const numRandom = getRandomNum(0, 2,'quote');
