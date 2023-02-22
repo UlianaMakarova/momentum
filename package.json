@@ -5,7 +5,7 @@
   "main": "/src/js/index",
   "scripts": {
     "style": "sass --watch src/sass/style.scss:src/sass/style.css src/sass/owfont-regular.scss:src/sass/owfont-regular.css",
-    "dev": "webpack --mode development",
+    "dev": "webpack --watch --mode development",
     "prod": "webpack --mode production"
   },
   "repository": {
