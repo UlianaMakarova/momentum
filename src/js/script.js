@@ -1,7 +1,8 @@
-import {Lang} from './Language'
-import  {Clock} from './ClockSettings';
-import { getLocalStorage, Weather } from './cityAndWeatherSettings';
+import { Lang } from './Language'
+import { Clock } from './ClockSettings';
+import { Weather } from './cityAndWeatherSettings';
 import { Quotes } from './QuotesSettings';
+import { getLocalStorage } from './localStorage';
 import './player';
 
 let randomNum = 0;
@@ -10,6 +11,7 @@ const reload = document.querySelector('.change-quote');
 
 window.onload = function(){
   const language = new Lang();
+  getLocalStorage();
   const clock = new Clock(language.langSetting,1000);
   const quote = new Quotes(language.langSetting, getRandomNum(0, 2,'quote'));
   const weather = new Weather(language.langSetting);
@@ -28,7 +30,7 @@ window.onload = function(){
     new Quotes(language.langSetting, getRandomNum(0, 2,'quote'));
   }));
  
-  weather.getLocalStorage();
+ // weather.getLocalStorage();
   setBackgroundImage(clock.currentPartOfDay);
   document.querySelector('.slide-next').addEventListener('click', getSlideNext);
   document.querySelector('.slide-prev').addEventListener('click', getSlidePrev); 
@@ -38,13 +40,6 @@ window.onload = function(){
   weather.cityContainer.addEventListener('keypress', (event)=>{
         weather.setCity(event);
         });
-  // window.addEventListener('onload', ()=>{
-  //   weather.getLocalStorage();
-  // });
-  window.addEventListener('beforeunload', ()=>{
-    weather.setLocalStorage();
-  });
-
 }
 
 
@@ -82,18 +77,3 @@ const getSlidePrev=()=>{
   randomNum = randomNum === 1 ? 20 : randomNum - 1;
   setBackgroundImage();
 }
-
-// function setLocalStorage() {
-//     const name = document.querySelector('.name');
-//     localStorage.setItem('name', name.value);
-//   };
-// window.addEventListener('beforeunload', setLocalStorage);
-
-// function getLocalStorage() {
-//     if(localStorage.getItem('name')) {
-//       const name = document.querySelector('.name');
-//       name.value = localStorage.getItem('name');
-//     }
-//   };
-//   window.addEventListener('onload', getLocalStorage);
-
