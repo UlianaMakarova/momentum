@@ -15,7 +15,6 @@ window.onload = function(){
   const clock = new Clock(language.langSetting,1000);
   const quote = new Quotes(language.langSetting, getRandomNum(0, 2,'quote'));
   const weather = new Weather(language.langSetting);
-  //
 
   language.container.addEventListener('click', (event)=>{
       language.change(); 

@@ -12,6 +12,34 @@
   margin: 0;
   padding: 0; }
 
+.player-icon,
+.slider-icon,
+.change-quote,
+.settings {
+  width: 32px;
+  height: 32px;
+  background-size: 32px 32px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  opacity: .8;
+  cursor: pointer;
+  transition: .3s; }
+
+.player-icon:hover,
+.slider-icon:hover,
+.change-quote:hover {
+  opacity: 1; }
+
+.player-icon:active,
+.slider-icon:active,
+.change-quote:active {
+  border: 0;
+  outline: 0;
+  transform: scale(1.1); }
+
 :export {
   apiKey: "08f2a575dda978b9c539199e54df03b0"; }
 
@@ -40,7 +68,6 @@
   padding: 0px; }
 
 .change-quote {
-  margin-bottom: 30px;
   background-image: url(91f316184109e60f0baf.svg); }
 
 .quote {
@@ -56,27 +83,43 @@
       padding-top: 18px;
       margin: 0; } }
 
-.footer_content {
+.footer-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 0px; }
   @media (max-width: 768px) {
-    .footer_content {
+    .footer-bottom {
       flex-direction: column;
       padding: 0; } }
 
-.footer_content a {
+.footer-sign {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  align-items: center;
+  padding: 10px 0px; }
+  @media (max-width: 768px) {
+    .footer-sign {
+      flex-direction: column;
+      padding: 0; } }
+
+.footer-sign a {
   font-family: 'Arial', sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 16px;
+  line-height: 18px;
   text-decoration: none;
   /* identical to box height, or 250% */
   color: #a1a099;
   background-color: transparent;
   padding: 0px 15px 0px 0px; }
+
+.settings-icon {
+  width: 32px;
+  height: 32px;
+  background-image: url(fa1e07972ef3cf474dc4.svg); }
 
 /*Components*/
 .time {
@@ -241,33 +284,6 @@ body {
 
 .item-active::before {
   color: #C5B358; }
-
-.player-icon,
-.slider-icon,
-.change-quote {
-  width: 32px;
-  height: 32px;
-  background-size: 32px 32px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  border: 0;
-  outline: 0;
-  opacity: .8;
-  cursor: pointer;
-  transition: .3s; }
-
-.player-icon:hover,
-.slider-icon:hover,
-.change-quote:hover {
-  opacity: 1; }
-
-.player-icon:active,
-.slider-icon:active,
-.change-quote:active {
-  border: 0;
-  outline: 0;
-  transform: scale(1.1); }
 
 .play {
   width: 40px;
