@@ -16,6 +16,11 @@ window.onload = function(){
   const quote = new Quotes(language.langSetting, getRandomNum(0, 2,'quote'));
   const weather = new Weather(language.langSetting);
 
+  const settings = document.querySelector('.settings-icon')
+  settings.addEventListener('click',()=>{
+    settings.classList.toggle('rotation');
+  })
+
   language.container.addEventListener('click', (event)=>{
       language.change(); 
       clock.langSetting = language.langSetting;  
